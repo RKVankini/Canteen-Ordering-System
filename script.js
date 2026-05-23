@@ -1,30 +1,89 @@
 const menu = [
-  {
-    id: 1,
-    name: "Veg Burger",
-    price: 80
-  },
-
-  {
-    id: 2,
-    name: "Masala Dosa",
-    price: 120
-  },
-
-  {
-    id: 3,
-    name: "Cold Coffee",
-    price: 60
-  },
-
-  {
-    id: 4,
-    name: "Paneer Sandwich",
-    price: 90
-  }
+  { id: 1, name: "Veg Burger", price: 80 },
+  { id: 2, name: "Masala Dosa", price: 120 },
+  { id: 3, name: "Cold Coffee", price: 60 },
+  { id: 4, name: "Paneer Sandwich", price: 90 }
 ];
 
 let cart = [];
+
+/* Authentication */
+
+function registerUser() {
+
+  const name =
+    document.getElementById("registerName").value;
+
+  const email =
+    document.getElementById("registerEmail").value;
+
+  const password =
+    document.getElementById("registerPassword").value;
+
+  if (!name || !email || !password) {
+
+    alert("Please fill all fields");
+
+    return;
+  }
+
+  const user = {
+    name,
+    email,
+    password
+  };
+
+  localStorage.setItem(
+    "canteenUser",
+    JSON.stringify(user)
+  );
+
+  alert("Registration successful!");
+}
+
+function loginUser() {
+
+  const email =
+    document.getElementById("loginEmail").value;
+
+  const password =
+    document.getElementById("loginPassword").value;
+
+  const savedUser = JSON.parse(
+    localStorage.getItem("canteenUser")
+  );
+
+  if (
+    savedUser &&
+    savedUser.email === email &&
+    savedUser.password === password
+  ) {
+
+    document.getElementById("authSection")
+      .style.display = "none";
+
+    document.getElementById("mainApp")
+      .style.display = "block";
+
+  } else {
+
+    alert("Invalid credentials");
+  }
+}
+
+/* Logout */
+
+document.getElementById("logoutBtn")
+  .addEventListener("click", () => {
+
+    document.getElementById("authSection")
+      .style.display = "flex";
+
+    document.getElementById("mainApp")
+      .style.display = "none";
+  });
+
+/* Menu */
 
 const menuContainer =
   document.getElementById("menu-items");
@@ -35,15 +94,14 @@ const cartContainer =
 const totalEl =
   document.getElementById("total");
 
-/* Render Menu */
-
 function renderMenu() {
 
   menuContainer.innerHTML = "";
 
   menu.forEach(item => {
 
-    const div = document.createElement("div");
+    const div =
+      document.createElement("div");
 
     div.className = "item";
 
@@ -60,17 +118,13 @@ function renderMenu() {
   });
 }
 
-/* Add To Cart */
-
 function addToCart(id) {
 
-  const item = menu.find(
-    food => food.id === id
-  );
+  const item =
+    menu.find(food => food.id === id);
 
-  const existing = cart.find(
-    product => product.id === id
-  );
+  const existing =
+    cart.find(product => product.id === id);
 
   if (existing) {
 
@@ -86,8 +140,6 @@ function addToCart(id) {
 
   renderCart();
 }
-
-/* Render Cart */
 
 function renderCart() {
 
@@ -109,9 +161,7 @@ function renderCart() {
 
       <p>Quantity: ${item.qty}</p>
 
-      <p>
-        ₹${item.price * item.qty}
-      </p>
+      <p>₹${item.price * item.qty}</p>
 
       <button onclick="removeFromCart(${item.id})">
         Remove
@@ -124,8 +174,6 @@ function renderCart() {
   totalEl.textContent = total;
 }
 
-/* Remove Cart Item */
-
 function removeFromCart(id) {
 
   cart = cart.filter(
@@ -137,8 +185,7 @@ function removeFromCart(id) {
 
 /* Checkout */
 
-document
-  .getElementById("checkout")
+document.getElementById("checkout")
   .addEventListener("click", () => {
 
     if (cart.length === 0) {
@@ -148,9 +195,7 @@ document
       return;
     }
 
-    alert(
-      "Order placed successfully!"
-    );
+    alert("Order placed successfully!");
 
     cart = [];
 
