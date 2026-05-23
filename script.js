@@ -1,0 +1,1 @@
+console.log('MuleSoft Training Portal Loaded Successfully');
