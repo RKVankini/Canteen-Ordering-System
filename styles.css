@@ -1,168 +1,37 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background: #f4f7fb;
-  color: #333;
-}
-
-/* Navbar */
-
-.navbar {
-  background: #ff6b00;
-  color: white;
-  padding: 20px 50px;
-
+.auth-container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 80px;
+  flex-wrap: wrap;
 }
 
-.logo {
-  font-size: 28px;
-  font-weight: bold;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 25px;
-  font-weight: bold;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-/* Hero */
-
-.hero {
-  text-align: center;
-  padding: 80px 20px;
-  background: linear-gradient(to right, #ff6b00, #ff944d);
-  color: white;
-}
-
-.hero h1 {
-  font-size: 48px;
-  margin-bottom: 20px;
-}
-
-.hero p {
-  font-size: 20px;
-  margin-bottom: 30px;
-}
-
-.hero button {
+.auth-box {
   background: white;
-  color: #ff6b00;
-  border: none;
-  padding: 15px 30px;
-  font-size: 18px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.hero button:hover {
-  background: black;
-  color: white;
-}
-
-/* Sections */
-
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 50px auto;
-}
-
-.container h2 {
-  margin-bottom: 30px;
-  font-size: 32px;
-}
-
-/* Menu Grid */
-
-.menu-grid,
-.cart-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
-}
-
-/* Cards */
-
-.item,
-.cart-item {
-  background: white;
-  padding: 25px;
+  padding: 40px;
+  width: 320px;
   border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  text-align: center;
-  transition: 0.3s;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-.item:hover,
-.cart-item:hover {
-  transform: translateY(-5px);
-}
-
-.item h3,
-.cart-item h4 {
-  margin-bottom: 15px;
-}
-
-.item p,
-.cart-item p {
-  margin-bottom: 10px;
-}
-
-/* Buttons */
-
-button {
-  background: #ff6b00;
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-button:hover {
-  background: black;
-}
-
-/* Cart */
-
-.cart-summary {
-  margin-top: 30px;
-  text-align: right;
-}
-
-.cart-summary h3 {
+.auth-box h2 {
   margin-bottom: 20px;
-  font-size: 28px;
+  text-align: center;
 }
 
-/* About */
-
-.about {
-  text-align: center;
-  line-height: 1.8;
+.auth-box input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
 }
 
-/* Footer */
+#logoutBtn {
+  margin-left: 20px;
+  background: red;
+}
 
-footer {
-  background: black;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  margin-top: 50px;
+#logoutBtn:hover {
+  background: darkred;
 }
