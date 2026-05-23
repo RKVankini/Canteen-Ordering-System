@@ -1,4 +1,3 @@
-```javascript
 const menu = [
   { id: 1, name: 'Veg Burger', price: 80 },
   { id: 2, name: 'Masala Dosa', price: 120 },
@@ -59,6 +58,3 @@ document.getElementById('checkout').addEventListener('click', () => {
 });
 
 renderMenu();
-```
-
----
