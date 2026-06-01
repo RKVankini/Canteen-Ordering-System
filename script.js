@@ -30,23 +30,23 @@ return;
 
 }
 
-try {
+// try {
 
-const response = await fetch(
-  "http://localhost:8081/api/register",
-  {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      name: name,
-      email: email,
-      phone: "9876543210",
-      password: password
-    })
-  }
-);
+// const response = await fetch(
+//   "http://localhost:8081/api/register",
+//   {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json"
+//     },
+//     body: JSON.stringify({
+//       name: name,
+//       email: email,
+//       phone: "9876543210",
+//       password: password
+//     })
+//   }
+// );
 
 const result = await response.json();
 
